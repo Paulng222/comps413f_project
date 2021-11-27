@@ -6,19 +6,19 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/conTitle"
+        android:id="@+id/LTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="16dp"
         android:text="Movie Search"
-        android:textColor="#FFFFFF"
+        android:textColor="#191818"
         android:textSize="40sp"
         android:typeface="serif" />
 
     <EditText
-        android:id="@+id/cEamil"
+        android:id="@+id/email"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -35,7 +35,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/cSubmit"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -44,6 +44,6 @@
         android:elevation="4dp"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:text="Login1"
+        android:text="Login"
         android:textColor="#FFF" />
 </LinearLayout>
