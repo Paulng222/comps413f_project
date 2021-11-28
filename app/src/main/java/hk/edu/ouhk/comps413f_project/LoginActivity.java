@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -40,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("password",pw);           //  put related information to shared file
                 editor.apply();
 
-
                 if(!logName.equals("") && !logPw.equals("")){
                     SharedPreferences userInfo = getSharedPreferences("Login_Share",0);
                     String lName = userInfo.getString("name",name);
@@ -56,8 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 }
-
-
+                
             }
         });
     }
