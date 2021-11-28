@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,23 +41,22 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("password",pw);           //  put related information to shared file
                 editor.apply();
 
-                if(!logName.equals("") && !logPw.equals("")){
                     SharedPreferences userInfo = getSharedPreferences("Login_Share",0);
-                    String lName = userInfo.getString("name",name);
-                    String  lPw =  userInfo.getString("password",pw);
+                    String lName = userInfo.getString("name", name); //    get the name and password in shared file
+                    String  lPw =  userInfo.getString("password", pw); //
 
                     if(name == lName && pw == lPw){
                         Intent loginIntent = new Intent(LoginActivity.this, UserInfoActivity.class);
                         startActivity(loginIntent);
                         finish();
-                    }else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "Name or Password is incorrect.",
                                 Toast.LENGTH_SHORT).show();
                     }
 
-                }
-                
+
             }
         });
     }
+
 }
