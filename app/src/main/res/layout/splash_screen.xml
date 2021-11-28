@@ -15,5 +15,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clipart88403" />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:text="Global Movie"
+        android:textSize="28dp"
+        android:layout_marginTop="245dp"
+        android:layout_marginLeft="66dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
