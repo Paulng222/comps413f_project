@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
         appTitle = findViewById(R.id.appTitle);
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {  // set the splash screen timeout.
             @Override
             public void run() {
                 Intent splashIntent = new Intent(MainActivity.this, LoginActivity.class);
