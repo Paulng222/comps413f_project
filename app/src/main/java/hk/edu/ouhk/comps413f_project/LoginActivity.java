@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = logName.getText().toString();
-                String pw = logPw.getText().toString();
+                String name = logName.getText().toString().trim();
+                String pw = logPw.getText().toString().trim();
 
                 userInfo = getSharedPreferences("SignUp_Share",0);
                 String lName = userInfo.getString("name", ""); //    get the name and password in shared file
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(loginIntent);
                         finish();
-                    } else if (TextUtils.isEmpty(name) && TextUtils.isEmpty(pw) ){
+                    } else if (TextUtils.isEmpty(name) && TextUtils.isEmpty(pw)){
                         Toast.makeText(getApplicationContext(), "Please enter name and password.",
                                 Toast.LENGTH_SHORT).show();
                     } else {

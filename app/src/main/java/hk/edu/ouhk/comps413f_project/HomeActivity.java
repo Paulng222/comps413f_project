@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         textview2 = findViewById(R.id.textView2);
         logout = findViewById(R.id.logout);
 
-        lInfo = getSharedPreferences("SignUp_Share",0);
+        lInfo = getSharedPreferences("SignUp_Share",0);  // get the data from shared file
         String name = lInfo.getString("name","");
         String email  = lInfo.getString("email","");
         int phone = lInfo.getInt("phone",0);
@@ -41,13 +41,9 @@ public class HomeActivity extends AppCompatActivity {
         editor.putString("password",pw);   //
         editor.commit();
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() { // logout the account
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor = lInfo.edit();
-                editor.clear();
-                editor.apply();
-
                 Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(logoutIntent);
                 finish();
