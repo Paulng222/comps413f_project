@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class HomeActivity extends AppCompatActivity {
     TextView textview, textview2;
     Button logout;
-    SharedPreferences lInfo;
+    SharedPreferences lInfo,UInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +24,27 @@ public class HomeActivity extends AppCompatActivity {
         textview2 = findViewById(R.id.textView2);
         logout = findViewById(R.id.logout);
 
-        lInfo = getSharedPreferences("Login_Share",0);
+        lInfo = getSharedPreferences("SignUp_Share",0);
         String name = lInfo.getString("name","");
-        textview.setText(name);
+        String email  = lInfo.getString("email","");
+        int phone = lInfo.getInt("phone",0);
         String pw =  lInfo.getString("password","");
+        textview.setText(name);
         textview2.setText(pw);
+
+
+        UInfo = getSharedPreferences("UInfo_Share",0);
+        SharedPreferences.Editor editor  = UInfo.edit();
+        editor.putString("name",name);     //
+        editor.putString("email",email);   //    Putting the variables to editor.
+        editor.putInt("phone",phone);   //
+        editor.putString("password",pw);   //
+        editor.commit();
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor editor =  lInfo.edit();
+                SharedPreferences.Editor editor = lInfo.edit();
                 editor.clear();
                 editor.apply();
 

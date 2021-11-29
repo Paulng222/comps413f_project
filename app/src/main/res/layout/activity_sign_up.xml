@@ -2,73 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background"
-    android:padding="16dp">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="42dp"
-        android:layout_height="55dp"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/uProfile"
+        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
-        android:text="Profile"
+        android:text="Sign Up"
         android:textColor="#191818"
         android:textSize="40sp"
         />
 
     <EditText
-        android:id="@+id/uName"
+        android:id="@+id/sName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:hint="Name"
-        android:inputType="text" />
+        android:inputType="text"
+        />
 
     <EditText
-        android:id="@+id/uEmail"
+        android:id="@+id/sEmail"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/uPhone"
+        android:id="@+id/sPhone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Phone"
-        android:inputType="phone" />
+        android:layout_marginTop="25dp"
+        android:hint="Phone Number"
+        android:inputType="number"
+        android:maxLength="8"
+        android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/uPw"
+        android:id="@+id/sPw"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
 
     <Button
-        android:id="@+id/uSave"
+        android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:background="#2196F3"
         android:elevation="4dp"
-        android:paddingLeft="70dp"
-        android:paddingRight="70dp"
-        android:text="Save"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Sign Up"
         android:textColor="#FFF" />
-
 
 </LinearLayout>

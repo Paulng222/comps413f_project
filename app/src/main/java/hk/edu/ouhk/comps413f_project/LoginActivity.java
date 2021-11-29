@@ -11,12 +11,14 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     EditText logName, logPw;
-    Button login, register;
-    SharedPreferences loginInfo;
+    Button login, lSignUp;
+    SharedPreferences userInfo;
+    TextView textview4, textview5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         logName = findViewById(R.id.logName);
         logPw = findViewById(R.id.logPw);
         login = findViewById(R.id.login);
-        register = findViewById(R.id.register);
-
-        loginInfo = getSharedPreferences("Login_Share", 0);  // Create a  SharedPreferences file.
+        lSignUp = findViewById(R.id.lSignUp);
+        textview4 = findViewById(R.id.textView4);
+        textview5 = findViewById(R.id.textView5);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,25 +38,34 @@ public class LoginActivity extends AppCompatActivity {
                 String name = logName.getText().toString();
                 String pw = logPw.getText().toString();
 
-                SharedPreferences.Editor editor =  loginInfo.edit();
-                editor.putString("name",name);             //
-                editor.putString("password",pw);           //  put related information to shared file
-                editor.apply();
+                userInfo = getSharedPreferences("SignUp_Share",0);
+                String lName = userInfo.getString("name", ""); //    get the name and password in shared file
+                String  lPw =  userInfo.getString("password", ""); //
+                textview4.setText(lName);
+                textview5.setText(lPw);
 
-                    SharedPreferences userInfo = getSharedPreferences("Login_Share",0);
-                    String lName = userInfo.getString("name", name); //    get the name and password in shared file
-                    String  lPw =  userInfo.getString("password", pw); //
 
-                    if(name == lName && pw == lPw){
-                        Intent loginIntent = new Intent(LoginActivity.this, UserInfoActivity.class);
+                    if(name.equals(lName) && pw.equals(lPw)){
+                        Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(loginIntent);
                         finish();
+                    } else if (TextUtils.isEmpty(name) && TextUtils.isEmpty(pw) ){
+                        Toast.makeText(getApplicationContext(), "Please enter name and password.",
+                                Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "Name or Password is incorrect.",
                                 Toast.LENGTH_SHORT).show();
                     }
 
+            }
+        });
 
+        lSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent SignUpIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(SignUpIntent);
+                finish();
             }
         });
     }
