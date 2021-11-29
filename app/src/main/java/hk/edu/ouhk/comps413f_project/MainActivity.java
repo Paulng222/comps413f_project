@@ -1,9 +1,8 @@
 package hk.edu.ouhk.comps413f_project;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.content.Intent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent loginIntent = new Intent(MainActivity.this, searchActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
