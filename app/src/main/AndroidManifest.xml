@@ -12,9 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Comps413f_project">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".UserInfoActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity
+            android:name=".GetMovieAsyncTask"
+            android:exported="false" />
+        <activity
+            android:name=".searchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchMovieApiUtil"
+            android:exported="false" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
