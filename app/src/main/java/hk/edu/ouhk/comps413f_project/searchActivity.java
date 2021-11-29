@@ -22,6 +22,7 @@ public class searchActivity extends Activity {
         setContentView(R.layout.search_movie);
         searchInput = findViewById(R.id.searchinput);
         MovieView = findViewById(R.id.searchresult);
+
     }
 
 
@@ -46,7 +47,7 @@ public class searchActivity extends Activity {
 
         // If no user input, show a Toast object
         if (queryString.length() == 0) {
-            Toast aToast=Toast.makeText(this, "No input!!!", Toast.LENGTH_LONG);
+            Toast aToast=Toast.makeText(this, "Search field is empty.", Toast.LENGTH_LONG);
             aToast.show();
         }
         // If the network is not available or not connected, show a Toast object

@@ -18,16 +18,31 @@
         <activity
             android:name=".searchActivity"
             android:exported="false" />
+
         <activity
             android:name=".SearchMovieApiUtil"
             android:exported="false" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".LoginActivity"
+            android:label="Global Movie"/>
+
+        <activity android:name=".HomeActivity"
+            android:label="Global Movie"/>
+
+        <activity android:name=".UserInfoActivity"
+            android:label="Global Movie"/>
+
+        <activity android:name=".SignUpActivity"
+            android:label="Global Movie"/>
+
+        <activity android:name=".MainActivity"
+            android:label="Global Movie">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
