@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="seachName" type="id" />
+    <item name="searchName" type="id" />
+    <item name="searchButton" type="id" />
+    <item name="searchinput" type="id" />
+</resources>
