@@ -9,8 +9,11 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12874819011495858" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.1125" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/create_account.xml" value="0.1" />
         <entry key="app/src/main/res/layout/create_account2.xml" value="0.1265625" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.1802536231884058" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/search_movie.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/splash_screen.xml" value="0.1503623188405797" />
