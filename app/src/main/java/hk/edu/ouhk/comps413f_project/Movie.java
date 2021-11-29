@@ -6,11 +6,12 @@ public class Movie implements Serializable {
     private final String title;
     private final String overview;
     private final String releasedate;
-    public Movie(String title, String overview, String releasedate) {
-
+    private final String icon;
+    public Movie(String title, String overview, String releasedate, String icon) {
         this.title = title;
         this.overview = overview;
         this.releasedate = releasedate;
+        this.icon = icon;
     }
 
     public String getTitle() {
@@ -24,4 +25,6 @@ public class Movie implements Serializable {
     public String getReleasedate() {
         return releasedate;
     }
+
+    public String getIcon(){return icon;}
 }
