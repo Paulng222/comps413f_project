@@ -14,36 +14,36 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
 
     private View MovieView;
     TextView titleView;
-    TextView authorsView;
-    TextView isbn10View;
+    TextView dateView;
+    TextView sOverView;
 
     private String searchBy;
 
-    // Constructor
-    // Initialize reference to the bookview in BookSearchActivity.
+
+    // Initialize reference to the movieView in searchActivity.
     public GetMovieAsyncTask(View MovieView, String searchBy) {
         this.MovieView = MovieView;
         titleView = MovieView.findViewById(R.id.dialogtitle);
-        authorsView = MovieView.findViewById(R.id.dialogauthor);
-        isbn10View = MovieView.findViewById(R.id.dialogisbn10);
+        dateView = MovieView.findViewById(R.id.date);
+        sOverView = MovieView.findViewById(R.id.overview);
 
         this.searchBy = searchBy;
     }
 
-    // Make query with Google Books api method getBookInfo of the BookApiUtil class
-    // If book cannot be found, null is returned
-    // Otherwise, a book object is return
+    // Make query with themoviedb api method getMovieInfo of the MovieApiUtil class
+    // return null when movie cannot be found
+    // Otherwise, return movie object
     @Override
     protected Movie doInBackground(String... strings) {
         String resultMovieStr;
         Movie resultMovie = null;
 
-        // Add code here
-        // Task 1: movie search
-        // i. Get book result in JSON format and stored in a string with method getBookInfo
-        // ii. Create book object with the resulted JSON string
+
+        //  movie search
+        //  Get movie result in JSON format and stored in a string with method getMovieInfo
+        //  Create movie object with the resulted JSON string
         resultMovieStr = MovieApiUtil.getMovieInfo(strings[0]);
-        resultMovie = retrieveBookDetails(resultMovieStr);
+        resultMovie = retrieveMovieDetails(resultMovieStr);
 
         return resultMovie;
     }
@@ -51,63 +51,59 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
     // Handle results after query is made
     @Override
     protected void onPostExecute(Movie resultMovie) {
-        // If no result found, display the failed result
+        // the failed result is displayed if no result found
         if (resultMovie == null) {
             updateUi(NO_RESULT, "", "");
             return;
         }
 
-        // Add code here
-        // Task 2: Show resulted book details with updateUi method
+
+        // Show resulted movie details using updateUi method
         updateUi(resultMovie.getTitle(), resultMovie.getOverview(), resultMovie.getReleasedate());
 
         searchActivity.resultMovie = resultMovie;
     }
 
-    // Update ui control in BookSearchActivity
+    // Update ui in searchActivity
     public void updateUi(String title, String overview, String releasedate) {
         titleView.setText(title);
-        authorsView.setText(releasedate);
-        isbn10View.setText(overview);
+        dateView.setText(releasedate);
+        sOverView.setText(overview);
     }
 
-    // Get book details from JSON string
-    public Movie retrieveBookDetails(String result) {
+    // Get movie details from JSON string
+    public Movie retrieveMovieDetails(String result) {
         Movie resultedMovie = null;
 
         // If result found
         try {
-            // Convert the result string into a JSON object
-            JSONObject jsonObject = new JSONObject(result);
-            // Get the JSONArray of "items"
-            JSONArray resultsArray = jsonObject.getJSONArray("results");
 
-            // Declare result variables
+            JSONObject jsonObject = new JSONObject(result);  // Convert the result string into a JSON object
+
+            JSONArray resultsArray = jsonObject.getJSONArray("results"); // Get the JSONArray of "items"
+
+
             int i = 0;
             String title = null;
             String overview = null;
             String releasedate = null;
 
-            // Search book from result JSONArray object
+            // Search movie from result JSONArray object
             while (i < resultsArray.length() && (title == null || overview == null || releasedate == null)) {
-                // Get the current book
-                JSONObject movie = resultsArray.getJSONObject(i);
+
+                JSONObject movie = resultsArray.getJSONObject(i);  // Get the current movie
                 // Get information of the current movie
 
 
-                // Get the title, authors and isbn from the current book
-                // Catch exception if any of the field is empty and try the next record (book)
+                // Get the title, release date and overview from the current movie
+                // handle the Catch exception if any of the field is empty and try the next movie record
                 try {
-                    // Get the title
-                    title = movie.getString("original_title");
 
-                    // Get the overview
+                    title = movie.getString("original_title");
                     overview = movie.getString("overview");
-                    // Get the release_date
                     releasedate = movie.getString("release_date");
 
-
-                    // If all the fields are found, create a new book object
+                    // If all the fields are found, create a new movie object
                     if (title != null && overview != null && releasedate!= null) {
                         resultedMovie = new Movie(title, overview, releasedate);
                     }
@@ -115,7 +111,7 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
                     e.printStackTrace();
                 }
 
-                // Move to the next record (book)
+                // Move to the next movie record
                 i++;
             }
         } catch (Exception e) {

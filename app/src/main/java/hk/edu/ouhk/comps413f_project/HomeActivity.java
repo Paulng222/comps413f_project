@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
     TextView textview, textview2;
-    Button logout;
     SharedPreferences lInfo,UInfo;
 
     @Override

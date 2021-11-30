@@ -2,6 +2,7 @@ package hk.edu.ouhk.comps413f_project;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -11,18 +12,32 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 public class searchActivity extends Activity {
     // EditText for user input
     private View MovieView;
     private EditText searchInput;
     static Movie resultMovie = null;
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_movie);
         searchInput = findViewById(R.id.searchinput);
         MovieView = findViewById(R.id.searchresult);
+        toolbar = findViewById(R.id.toolbar);
 
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent splashIntent = new Intent(searchActivity.this, HomeActivity.class);
+                startActivity(splashIntent);
+                finish();
+            }
+        });
     }
 
 

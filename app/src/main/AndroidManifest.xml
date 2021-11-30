@@ -8,35 +8,25 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Global Movie"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Comps413f_project">
-        <activity
-            android:name=".GetMovieAsyncTask"
-            android:exported="false" />
-        <activity
-            android:name=".searchActivity"
-            android:exported="false" />
 
         <activity
-            android:name=".SearchMovieApiUtil"
+            android:name=".searchActivity"
             android:exported="false" />
 
         <activity android:name=".LoginActivity"
             android:label="Global Movie"/>
 
-        <activity android:name=".HomeActivity"
-            android:label="Global Movie"/>
+        <activity android:name=".HomeActivity" />
 
-        <activity android:name=".UserInfoActivity"
-            android:label="Global Movie"/>
+        <activity android:name=".UserInfoActivity" />
 
-        <activity android:name=".SignUpActivity"
-            android:label="Global Movie"/>
+        <activity android:name=".SignUpActivity" />
 
-        <activity android:name=".MainActivity"
-            android:label="Global Movie">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
