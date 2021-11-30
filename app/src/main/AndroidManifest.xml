@@ -12,27 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Comps413f_project">
-
+        <activity android:name=".AboutActivity"></activity>
         <activity
             android:name=".searchActivity"
             android:exported="false" />
-
-        <activity android:name=".LoginActivity"
-            android:label="Global Movie"/>
-
+        <activity
+            android:name=".LoginActivity"
+            android:label="Global Movie" />
         <activity android:name=".HomeActivity" />
-
         <activity android:name=".UserInfoActivity" />
-
         <activity android:name=".SignUpActivity" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

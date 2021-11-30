@@ -68,9 +68,9 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(pIntent);
             finish();
         } else if (id == R.id.about){
-            //Intent aIntent = new Intent(HomeActivity.this, contactFormActivity.class);
-            //startActivity(aIntent);
-            //finish();
+            Intent aIntent = new Intent(HomeActivity.this, AboutActivity.class);
+            startActivity(aIntent);
+            finish();
         } else if (id == R.id.logout){
             Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(logoutIntent);
