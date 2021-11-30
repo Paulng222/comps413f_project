@@ -1,6 +1,7 @@
 package hk.edu.ouhk.comps413f_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ public class SignUpActivity extends AppCompatActivity {
    EditText sName, sEmail, sPhone, sPw;
    Button signUpButton;
    SharedPreferences signUpInfo;
+   Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
         sPhone = findViewById(R.id.sPhone);
         sPw = findViewById(R.id.sPw);
         signUpButton = findViewById(R.id.signUpButton);
+        toolbar = findViewById(R.id.toolbar);
 
         signUpInfo = getSharedPreferences("SignUp_Share", 0);  // Create a  SharedPreferences file.
 
@@ -48,6 +51,17 @@ public class SignUpActivity extends AppCompatActivity {
 
                 Intent SignUpIntent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(SignUpIntent);
+                finish();
+            }
+        });
+
+
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent splashIntent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(splashIntent);
                 finish();
             }
         });

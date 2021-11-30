@@ -6,13 +6,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
     TextView textview, textview2;
-    Button logout;
     SharedPreferences lInfo,UInfo;
 
     @Override
@@ -22,7 +23,6 @@ public class HomeActivity extends AppCompatActivity {
 
         textview = findViewById(R.id.textView);
         textview2 = findViewById(R.id.textView2);
-        logout = findViewById(R.id.logout);
 
         lInfo = getSharedPreferences("SignUp_Share",0);  // get the data from shared file
         String name = lInfo.getString("name","");
@@ -41,13 +41,44 @@ public class HomeActivity extends AppCompatActivity {
         editor.putString("password",pw);   //
         editor.commit();
 
-        logout.setOnClickListener(new View.OnClickListener() { // logout the account
-            @Override
-            public void onClick(View view) {
-                Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
-                startActivity(logoutIntent);
-                finish();
-            }
-        });
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.sMovie) {
+            Intent searchIntent = new Intent(HomeActivity.this, searchActivity.class);
+            startActivity(searchIntent);
+            finish();                                                                //
+        } else if (id == R.id.mFavourite) {
+            //Intent mIntent = new Intent(MainActivity.this, earthquakeView.class);
+            //startActivity(mIntent);
+           // finish();
+        } else if (id == R.id.uProfile){
+            Intent pIntent = new Intent(HomeActivity.this, UserInfoActivity.class);
+            startActivity(pIntent);
+            finish();
+        } else if (id == R.id.about){
+            //Intent aIntent = new Intent(HomeActivity.this, contactFormActivity.class);
+            //startActivity(aIntent);
+            //finish();
+        } else if (id == R.id.logout){
+            Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

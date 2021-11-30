@@ -16,8 +16,6 @@ public class MovieApiUtil {
     // Parameter for the query string
     private static final String QUERY_PARAM = "query";
 
-
-
     static String getMovieInfo(String queryString) {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -34,7 +32,7 @@ public class MovieApiUtil {
 
             // Convert the URI to a URL
             URL requestURL = new URL(builtURI.toString());
-System.out.println(builtURI.toString());
+            System.out.println(builtURI.toString());
             // Open the network connection
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");

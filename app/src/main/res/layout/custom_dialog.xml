@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/dialogbookcover"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -15,27 +11,33 @@
         android:columnCount="2" >
 
         <TextView
-            android:text="Title: " />
+            android:text="Title: "
+            android:textSize="20sp"/>
         <TextView
             android:id="@+id/dialogtitle"
             android:layout_width="0dp"
-            android:layout_gravity="fill_horizontal"/>
+            android:layout_gravity="fill_horizontal"
+            android:textSize="20sp"/>
 
         <TextView
-            android:text="Release Date: " />
+            android:text="Release Date: "
+            android:textSize="20sp"/>
+
         <TextView
-            android:id="@+id/dialogauthor"
+            android:id="@+id/date"
             android:layout_width="0dp"
-            android:layout_gravity="fill_horizontal"/>
+            android:layout_gravity="fill_horizontal"
+            android:textSize="20sp"/>
 
         <TextView
-            android:text="Overview: " />
+            android:text="Overview: "
+            android:textSize="20sp"/>
+
         <TextView
-            android:id="@+id/dialogisbn10"
+            android:id="@+id/overview"
             android:layout_width="0dp"
-            android:layout_gravity="fill_horizontal"/>
-
-
+            android:layout_gravity="fill_horizontal"
+            android:textSize="20sp"/>
 
     </GridLayout>
 
@@ -43,6 +45,7 @@
         android:id="@+id/favoritecheckbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add to Favorite" />
+        android:text="Add to Favorite"
+        android:textSize="20sp"/>
 
 </LinearLayout>
