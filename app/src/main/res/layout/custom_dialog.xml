@@ -12,40 +12,59 @@
 
         <TextView
             android:text="Title: "
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"/>
         <TextView
             android:id="@+id/dialogtitle"
             android:layout_width="0dp"
             android:layout_gravity="fill_horizontal"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginLeft="8dp"/>
 
         <TextView
             android:text="Release Date: "
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/date"
             android:layout_width="0dp"
             android:layout_gravity="fill_horizontal"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:text="Overview: "
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/overview"
             android:layout_width="0dp"
             android:layout_gravity="fill_horizontal"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"/>
+
 
     </GridLayout>
 
-    <CheckBox
-        android:id="@+id/favoritecheckbox"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/addbtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Favorite"
-        android:textSize="20sp"/>
+        android:elevation="4dp"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:text="Add to Favourite"
+        android:textColor="#000"/>
 
 </LinearLayout>

@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView textview, textview2;
+    TextView textview;
     SharedPreferences lInfo,UInfo;
 
     @Override
@@ -22,15 +22,14 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         textview = findViewById(R.id.textView);
-        textview2 = findViewById(R.id.textView2);
 
         lInfo = getSharedPreferences("SignUp_Share",0);  // get the data from shared file
         String name = lInfo.getString("name","");
         String email  = lInfo.getString("email","");
         int phone = lInfo.getInt("phone",0);
         String pw =  lInfo.getString("password","");
-        textview.setText(name);
-        textview2.setText(pw);
+        textview.setText("Welcome! " + name);
+
 
 
         UInfo = getSharedPreferences("UInfo_Share",0);
@@ -60,9 +59,9 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(searchIntent);
             finish();                                                                //
         } else if (id == R.id.mFavourite) {
-            //Intent mIntent = new Intent(MainActivity.this, earthquakeView.class);
-            //startActivity(mIntent);
-           // finish();
+            Intent mIntent = new Intent(HomeActivity.this, FavouriteActivity.class);
+            startActivity(mIntent);
+            finish();
         } else if (id == R.id.uProfile){
             Intent pIntent = new Intent(HomeActivity.this, UserInfoActivity.class);
             startActivity(pIntent);
@@ -72,6 +71,9 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(aIntent);
             finish();
         } else if (id == R.id.logout){
+            SharedPreferences.Editor editor  =lInfo.edit();
+            editor.clear().apply();
+
             Intent logoutIntent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(logoutIntent);
             finish();

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="42dp"
+        android:layout_height="55dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/uProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:text="Favourite"
+        android:textColor="#000"
+        android:textSize="40sp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2" >
+
+            <TextView
+                android:text="Title: "
+                android:textSize="20sp"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/fText"
+                android:layout_width="0dp"
+                android:layout_gravity="fill_horizontal"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:text="Release Date: "
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/fText2"
+                android:layout_width="0dp"
+                android:layout_gravity="fill_horizontal"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:text="Overview: "
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/fText3"
+                android:layout_width="0dp"
+                android:layout_gravity="fill_horizontal"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:text="Add Time: "
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/fText4"
+                android:layout_width="0dp"
+                android:layout_gravity="fill_horizontal"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"/>
+
+
+
+        </GridLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:elevation="4dp"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="Clear All" />
+
+
+</LinearLayout>

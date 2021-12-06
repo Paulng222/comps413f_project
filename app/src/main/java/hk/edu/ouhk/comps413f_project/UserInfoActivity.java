@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class UserInfoActivity extends AppCompatActivity {
     EditText uName, uPw, uEmail, uPhone;
-    Button uSave;
     Toolbar toolbar;
     SharedPreferences UserInfo,signUp;
 
@@ -27,7 +26,6 @@ public class UserInfoActivity extends AppCompatActivity {
         uEmail = findViewById(R.id.uEmail);
         uPhone = findViewById(R.id.uPhone);
         uPw = findViewById(R.id.uPw);
-        uSave = findViewById(R.id.uSave);
         toolbar = findViewById(R.id.toolbar);
 
         UserInfo = getSharedPreferences("UInfo_Share",0);
@@ -53,31 +51,6 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
 
-
-        uSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String editName = uName.getText().toString();
-                String editEmail = uEmail.getText().toString();
-                int editPhone = Integer.parseInt(uPhone.getText().toString().trim());
-                String editPw = uPw.getText().toString();
-
-                signUp = getSharedPreferences("SignUp_Share",0);
-                SharedPreferences.Editor editor  = signUp.edit();
-                editor.putString("name", editName);     //
-                editor.putString("email", editEmail);   //    Putting the variables to editor.
-                editor.putInt("phone", editPhone);   //
-                editor.putString("password", editPw);   //
-                editor.commit();
-
-                Toast.makeText(getApplicationContext(), "User Information is updated.",
-                        Toast.LENGTH_SHORT).show();
-
-                Intent SignUpIntent = new Intent(UserInfoActivity.this, LoginActivity.class);
-                startActivity(SignUpIntent);
-                finish();
-            }
-        });
 
     }
 }

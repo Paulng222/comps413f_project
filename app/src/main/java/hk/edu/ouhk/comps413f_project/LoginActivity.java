@@ -18,7 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText logName, logPw;
     Button login, lSignUp;
     SharedPreferences userInfo;
-    TextView textview4, textview5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         logPw = findViewById(R.id.logPw);
         login = findViewById(R.id.login);
         lSignUp = findViewById(R.id.lSignUp);
-        textview4 = findViewById(R.id.textView4);
-        textview5 = findViewById(R.id.textView5);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +39,6 @@ public class LoginActivity extends AppCompatActivity {
                 userInfo = getSharedPreferences("SignUp_Share",0);
                 String lName = userInfo.getString("name", ""); //    get the name and password in shared file
                 String  lPw =  userInfo.getString("password", ""); //
-                textview4.setText(lName);
-                textview5.setText(lPw);
-
 
                     if(name.equals(lName) && pw.equals(lPw)){
                         Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);

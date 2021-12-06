@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Comps413f_project">
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".FavouriteActivity"></activity>
+        <activity android:name=".AboutActivity" />
         <activity
             android:name=".searchActivity"
             android:exported="false" />
