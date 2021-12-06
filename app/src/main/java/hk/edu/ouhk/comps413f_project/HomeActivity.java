@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
         textview = findViewById(R.id.textView);
 
-        
+
         lInfo = getSharedPreferences("SignUp_Share",0);  // get the data from shared file
         String name = lInfo.getString("name","");
         String email  = lInfo.getString("email","");
