@@ -2,12 +2,13 @@ package hk.edu.ouhk.comps413f_project;
 
 import java.io.Serializable;
 
-public class Movie implements Serializable {
+public class Movie implements Serializable{
     private final String title;
     private final String overview;
     private final String releasedate;
     private final String icon;
     public Movie(String title, String overview, String releasedate, String icon) {
+
         this.title = title;
         this.overview = overview;
         this.releasedate = releasedate;
@@ -26,5 +27,8 @@ public class Movie implements Serializable {
         return releasedate;
     }
 
-    public String getIcon(){return icon;}
+    public String geticon() {
+        return icon;
+    }
+
 }

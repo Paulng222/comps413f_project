@@ -2,7 +2,10 @@ package hk.edu.ouhk.comps413f_project;
 
 import android.os.AsyncTask;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,8 +19,9 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
     TextView titleView;
     TextView dateView;
     TextView sOverView;
-
+    String i;
     private String searchBy;
+    ImageView imageIcon;
 
 
     // Initialize reference to the movieView in searchActivity.
@@ -26,8 +30,9 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
         titleView = MovieView.findViewById(R.id.dialogtitle);
         dateView = MovieView.findViewById(R.id.date);
         sOverView = MovieView.findViewById(R.id.overview);
-
+        imageIcon = MovieView.findViewById(R.id.imageIcon);
         this.searchBy = searchBy;
+
     }
 
     // Make query with themoviedb api method getMovieInfo of the MovieApiUtil class
@@ -54,13 +59,14 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
         // the failed result is displayed if no result found
         if (resultMovie == null) {
             updateUi(NO_RESULT, "", "");
+            updateicon("");
             return;
         }
 
 
         // Show resulted movie details using updateUi method
         updateUi(resultMovie.getTitle(), resultMovie.getOverview(), resultMovie.getReleasedate());
-
+        updateicon(resultMovie.geticon());
         searchActivity.resultMovie = resultMovie;
     }
 
@@ -69,7 +75,15 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
         titleView.setText(title);
         dateView.setText(releasedate);
         sOverView.setText(overview);
+
+
+
     }
+
+    public void updateicon(String icon){
+        Picasso.get().load("https://www.themoviedb.org/t/p/original"+icon).into(imageIcon);
+    }
+
 
     // Get movie details from JSON string
     public Movie retrieveMovieDetails(String result) {
@@ -87,6 +101,7 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
             String title = null;
             String overview = null;
             String releasedate = null;
+            String icon = null;
 
             // Search movie from result JSONArray object
             while (i < resultsArray.length() && (title == null || overview == null || releasedate == null)) {
@@ -100,12 +115,15 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
                 try {
 
                     title = movie.getString("original_title");
+
+                    System.out.println(title);
                     overview = movie.getString("overview");
                     releasedate = movie.getString("release_date");
+                    icon = movie.getString("backdrop_path");
 
                     // If all the fields are found, create a new movie object
                     if (title != null && overview != null && releasedate!= null) {
-                        resultedMovie = new Movie(title, overview, releasedate);
+                        resultedMovie = new Movie(title, overview, releasedate, icon);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -119,6 +137,8 @@ public class GetMovieAsyncTask extends AsyncTask<String, Void, Movie> {
         }
 
         return resultedMovie;
+
+
     }
 
 

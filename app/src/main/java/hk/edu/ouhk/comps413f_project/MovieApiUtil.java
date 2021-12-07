@@ -37,7 +37,7 @@ public class MovieApiUtil {
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
-
+//System.out.println();
             // Get the InputStream
             InputStream inputStream = urlConnection.getInputStream();
 
