@@ -51,6 +51,7 @@ public class searchActivity extends Activity {
             }
         });
 
+        
         favInfo = getSharedPreferences("Fav_Share", 0);  // Create a  SharedPreferences file.
 
         addbtn.setOnClickListener(new View.OnClickListener() {
