@@ -48,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         editor.putString("password",pw);   //
         editor.commit();
 
+        
         PropertyValuesHolder rotationY = PropertyValuesHolder.ofFloat("rotationY",0.0F,360.0F);
         PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX",0.0F,0,1F);
         PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY",0.0F,0,1F);
