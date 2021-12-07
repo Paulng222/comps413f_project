@@ -2,6 +2,9 @@ package hk.edu.ouhk.comps413f_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,11 +12,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView textview;
+    TextView greeting,hTitle;
+    ImageView aniImage;
     SharedPreferences lInfo,UInfo;
 
     @Override
@@ -21,16 +28,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        textview = findViewById(R.id.textView);
-
+        greeting = findViewById(R.id.greeting);
+        hTitle = findViewById(R.id.hTitle);
+        aniImage = findViewById(R.id.aniImage);
 
         lInfo = getSharedPreferences("SignUp_Share",0);  // get the data from shared file
         String name = lInfo.getString("name","");
         String email  = lInfo.getString("email","");
         int phone = lInfo.getInt("phone",0);
         String pw =  lInfo.getString("password","");
-        textview.setText("Welcome! " + name);
-
+        greeting.setText("Welcome! " + name);
 
 
         UInfo = getSharedPreferences("UInfo_Share",0);
@@ -40,6 +47,12 @@ public class HomeActivity extends AppCompatActivity {
         editor.putInt("phone",phone);   //
         editor.putString("password",pw);   //
         editor.commit();
+
+        PropertyValuesHolder rotationY = PropertyValuesHolder.ofFloat("rotationY",0.0F,360.0F);
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX",0.0F,0,1F);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY",0.0F,0,1F);
+        ObjectAnimator.ofPropertyValuesHolder(aniImage,rotationY,scaleX,scaleY).setDuration(3000).start();
+        ObjectAnimator.ofPropertyValuesHolder(hTitle,rotationY,scaleX,scaleY).setDuration(3000).start();
 
     }
 
